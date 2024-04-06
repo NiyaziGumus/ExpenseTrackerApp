@@ -1,35 +1,36 @@
 import React, { useState } from 'react';
 
-const IncomeForm = () => {
-  const [source, setSource] = useState('');
+const ExpenseForm = () => {
+  const [category, setCategory] = useState('');
   const [amount, setAmount] = useState('');
   const [date, setDate] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Einnahmequelle:', source);
+    console.log('Kategorie:', category);
     console.log('Betrag:', amount);
     console.log('Datum:', date);
-    setSource('');
+    // Formu sıfırla
+    setCategory('');
     setAmount('');
     setDate('');
   };
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-4xl font-bold mb-4">Einnahmen hinzufügen</h1>
+      <h1 className="text-4xl font-bold mb-4">Ausgaben hinzufügen</h1>
       <form onSubmit={handleSubmit} className="w-full max-w-sm">
         <div className="mb-4">
-          <label htmlFor="source" className="block text-gray-700 font-bold mb-2">
-            Einnahmequelle
+          <label htmlFor="category" className="block text-gray-700 font-bold mb-2">
+            Kategorie
           </label>
           <input
             type="text"
-            id="source"
-            value={source}
-            onChange={(e) => setSource(e.target.value)}
+            id="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            placeholder="Geben Sie die Einnahmequelle ein"
+            placeholder="Geben Sie die Kategorie ein"
           />
         </div>
         <div className="mb-4">
@@ -59,13 +60,13 @@ const IncomeForm = () => {
         </div>
         <button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
-          Einnahme hinzufügen
+          Ausgabe hinzufügen
         </button>
       </form>
     </div>
   );
 };
 
-export default IncomeForm;
+export default ExpenseForm;
